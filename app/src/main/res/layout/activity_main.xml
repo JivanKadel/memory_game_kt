@@ -9,7 +9,7 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutGameInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_secondary_variant"
@@ -43,7 +43,7 @@
             app:cardCornerRadius="8dp">
 
             <TextView
-                android:id="@+id/textViewNumOfParis"
+                android:id="@+id/textViewNumOfPairs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -54,6 +54,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewBoard"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
