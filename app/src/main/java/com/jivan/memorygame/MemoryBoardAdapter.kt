@@ -12,8 +12,8 @@ class MemoryBoardAdapter(private val context: Context, private val numOfPieces: 
     RecyclerView.Adapter<MemoryBoardAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val cardWidth = parent.width / 2;
-        val cardHeight = parent.height / 4;
+        val cardWidth = parent.width / 2
+        val cardHeight = parent.height / 4
         val cardLength = min(cardHeight, cardWidth)
         val view = LayoutInflater.from(context).inflate(R.layout.memory_card, parent, false);
         val layoutParams = view.findViewById<CardView>(R.id.cardView).layoutParams
