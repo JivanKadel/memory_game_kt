@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         tvNumOfMoves = findViewById(R.id.textViewNumOfMoves);
         tvNumOfPairs = findViewById(R.id.textViewNumOfPairs);
 
+        rvBoard.adapter = MemoryBoardAdapter(this, 8);
+        rvBoard.setHasFixedSize(true);
+        rvBoard.layoutManager = GridLayoutManager(this, 2);
 
     }
 }
