@@ -8,11 +8,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.jivan.memorygame.models.BoardSize
 
 class MainActivity : AppCompatActivity() {
     private lateinit var rvBoard: RecyclerView;
     private lateinit var tvNumOfMoves: TextView;
     private lateinit var tvNumOfPairs: TextView;
+
+    private var boardSize = BoardSize.EASY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +31,9 @@ class MainActivity : AppCompatActivity() {
         tvNumOfMoves = findViewById(R.id.textViewNumOfMoves);
         tvNumOfPairs = findViewById(R.id.textViewNumOfPairs);
 
-        rvBoard.adapter = MemoryBoardAdapter(this, 8);
+        rvBoard.adapter = MemoryBoardAdapter(this, boardSize);
         rvBoard.setHasFixedSize(true);
-        rvBoard.layoutManager = GridLayoutManager(this, 2);
+        rvBoard.layoutManager = GridLayoutManager(this, boardSize.getWidth());
 
     }
 }
