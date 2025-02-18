@@ -9,13 +9,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jivan.memorygame.models.BoardSize
+import com.jivan.memorygame.utils.DEFAULT_ICONS
 
 class MainActivity : AppCompatActivity() {
     private lateinit var rvBoard: RecyclerView;
     private lateinit var tvNumOfMoves: TextView;
     private lateinit var tvNumOfPairs: TextView;
 
-    private var boardSize = BoardSize.EASY
+    private var boardSize = BoardSize.HARD
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,10 @@ class MainActivity : AppCompatActivity() {
         tvNumOfMoves = findViewById(R.id.textViewNumOfMoves);
         tvNumOfPairs = findViewById(R.id.textViewNumOfPairs);
 
-        rvBoard.adapter = MemoryBoardAdapter(this, boardSize);
+        val chosenImages = DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs());
+        val randomizedImages = (chosenImages + chosenImages).shuffled();
+
+        rvBoard.adapter = MemoryBoardAdapter(this, boardSize, randomizedImages);
         rvBoard.setHasFixedSize(true);
         rvBoard.layoutManager = GridLayoutManager(this, boardSize.getWidth());
 
